@@ -1,0 +1,32 @@
+type Store {
+ id: ID!
+ location: String!
+ date: String!
+ storename: String!
+ missings:[Item]
+}
+
+type Item {
+ id: ID! 
+ item: String,
+ number: String
+}
+  
+type Query {
+    getStore(id: String!): Store!
+    getItem(id: String!): Item!
+}
+
+input AddItemInput {
+    item: String,
+    number: String
+}
+
+type Mutation {
+    addStore(
+        storename: String, 
+        location: String, 
+        date: String, 
+        items: [AddItemInput!] 
+    ): Store!
+}
