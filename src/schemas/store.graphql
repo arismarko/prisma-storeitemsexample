@@ -13,8 +13,11 @@ type Item {
 }
   
 type Query {
-    getStore(id: String!): Store!
-    getItem(id: String!): Item!
+    getStoreById(id: String!): Store!
+    getItemById(id: String!): Item!
+    getItemsByName(name: String!): [Item!]
+    getStoresByName(name: String!): [Store!]
+    getStoresByItemName(name: String!): [Store!]
 }
 
 input AddItemInput {
